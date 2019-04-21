@@ -1,0 +1,244 @@
+/* Navigation
+--------------------------------------------------------------------------------*/
+
+#wsite-title {
+  .font-header;
+  display: inline-block;
+  font-size: 40px;
+  line-height: 1;
+  color: @primary-color;
+
+  &:hover {
+    color: @secondary-color;
+  }
+}
+
+.wsite-logo {
+  a {
+    border: none;
+
+    img {
+      margin: 10px 0;
+      max-width: 165px;
+    }
+  }
+}
+
+#dummy-nav {
+  display: none;
+}
+
+#navmobile {
+  margin-bottom: @gutter-half;
+  border-bottom: 1px solid @border-color;
+}
+
+#navmobile ul {
+  list-style: none;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+#navmobile ul li {
+  list-style: none;
+  display: block;
+  margin: @gutter-third 0;
+  line-height: 1.2;
+}
+
+#navmobile ul li a {
+  .font-primary;
+  .weight(500);
+  color: @body-color;
+  font-size: 12px;
+  cursor: pointer;
+  border-bottom: 0;
+  letter-spacing: 2px;
+}
+
+#navmobile ul li#active a, #navmobile ul li a:hover, #navmobile ul li a:focus {
+  color: @secondary-color;
+}
+
+.wsite-mobile-menu {
+  margin: 10px 0;
+}
+
+/*MOBILE SUPPORT*/
+
+#mobile-top, #mobile-close {
+  display: none;
+}
+
+@media (max-width: @bp-medium) {
+  #mobile-top {
+    position: relative;
+    width: 100%;
+    padding: 20px 40px;
+    display: block;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  #mobile-top .sitename {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  #mobile-top .sitename * {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  #site-logo {
+    max-width: 90%;
+  }
+
+  .wsite-logo a img {
+    max-height: 40px;
+  }
+
+  #mobile-open {
+    position: absolute;
+    display: block;
+    top: 50%;
+    margin-top: -8px;
+    width: 20px;
+    height: 20px;
+    background: url(images/menu.svg) no-repeat center center;
+    background-size: 100% 100%;
+  }
+
+  #mobile-close {
+    position: absolute;
+    display: block;
+    top: 40px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: url(images/close.svg) no-repeat center;
+    background-size: 100% auto;
+  }
+
+  .wsite-mobile-menu {
+    padding: 5px 0;
+    .transition(all 600ms ease-in);
+  }
+}
+
+@media (max-width: @bp-small) {
+  #mobile-top {
+    .flex-display;
+    .justify-content(space-between);
+    .align-items(center);
+    height: 70px;
+    padding: 0 20px;
+
+    .sitename {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+
+      #wsite-title {
+        margin: 10px 0 0;
+        font-size: 26px;
+        line-height: 1;
+      }
+    }
+
+    .site-utils {
+      .flex-display;
+      .justify-content(flex-end);
+      .align-items(center);
+
+      #mobile-open {
+        .flex-order(2);
+        position: static;
+        margin-top: 0;
+      }
+
+      .wsite-nav-cart {
+        position: static;
+        top: 0;
+        padding-left: @gutter-third;
+        margin-right: @gutter-quarter;
+        height: 20px;
+        line-height: 20px;
+
+        #wsite-nav-cart-a { border-bottom: none; }
+      }
+    }
+  }
+}
+
+
+/* Navigation Submenu's
+--------------------------------------------------------------------------------*/
+.wsite-menu-arrow {
+  display: none !important;
+}
+
+.wsite-menu-mobile-arrow {
+  position: relative;
+  font-size: .65em;
+  line-height: inherit;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right:  -@gutter-half;
+    top: 0;
+    display: inline-block;
+    width: @gutter-half;
+    height: 10px;
+    background: url(images/back.svg) no-repeat center center;
+    background-size: contain;
+    vertical-align: baseline;
+    .transition(all 300ms ease-in);
+    transform: rotate(180deg);
+  }
+
+  &:hover:before {
+    right:  -40px;
+  }
+}
+
+#navmobile {
+  .wsite-menu-master-item {
+    margin: 15px 0;
+
+    a {
+      .weight(600);
+      padding-bottom: 0;
+      font-size: 14px;
+
+      &:not([href]) {
+        border-bottom: none !important;
+      }
+    }
+  }
+
+  .wsite-menu-back-item a {
+    .weight(300);
+    padding-bottom: 0;
+    padding-left: @gutter-half;
+    margin-bottom: @gutter-half;
+    font-size: 12px;
+    color: @primary-color;
+    background-image: url(images/back.svg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 12px 10px;
+  }
+}
+
+@media (max-width: @bp-medium) {
+  .wsite-menu-title, .wsite-menu-back {
+    display: inline-block !important;
+  }
+}
