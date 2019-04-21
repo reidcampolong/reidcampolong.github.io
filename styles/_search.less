@@ -1,0 +1,215 @@
+/***v sidebar v***/
+.wsite-search {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.wsite-search #wsite-header-search-form ,
+.wsite-search {
+  .flex-display;
+  .align-items(center);
+  .wsite-search-button {
+    .flex-order(1);
+    float: left;
+    width: 14px;
+    height: 14px;
+    background: url(images/search.svg);
+  }
+
+  .wsite-search-input {
+    .flex-order(2);
+    .font-primary;
+    .weight(600);
+    padding-left: 12px !important;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: @body-color;
+    background: 0;
+    border: 0;
+    box-shadow: none;
+  }
+}
+
+/***^ sidebar ^***/
+
+/***v results page v***/
+.wsite-page-searchresults {
+  .wsite-search-element-input, #wsite-search-query {
+    .font-primary;
+    font-size: 18px;
+    color: @body-color;
+    background: @color-nav-background;
+    border: 1px solid @border-color;
+    border-radius: 2px !important;
+  }
+
+  #wsite-search-header {
+    border: none;
+  }
+
+  #wsite-search-header h2 {
+    .font-header;
+    font-size: 28px;
+    width: auto !important;
+    margin-right: 40px;
+    padding: 6px 0 0;
+    text-align: left;
+    color: @primary-color;
+  }
+
+  #wsite-search-form-container {
+    float: left;
+    width: 65%;
+    text-align: left;
+  }
+
+  #wsite-search-sidebar {
+    float: right !important;
+    width: 20%;
+    text-align: left;
+  }
+
+  #wsite-search-content:not(.one-column) #wsite-search-results {
+    float: left !important;
+    width: 75%;
+    margin-right: 5%;
+    text-align: left;
+  }
+
+  .wsite-search-facet-entries {
+    display: inline-block;
+  }
+
+  #wsite-search-product-results {
+    .wsite-search-product-result {
+      width: 30%;
+      padding-bottom: @gutter;
+    }
+
+    .wsite-search-product-image-container {
+      height: 175px;
+      border: 0;
+      border-radius: 2px;
+      box-shadow: none;
+    }
+
+    .wsite-search-product-name {
+      .font-header;
+      .weight(400);
+      margin-top: @gutter-half;
+      font-size: 20px;
+      line-height: 1.2;
+      text-align: center;
+      color: @primary-color;
+    }
+
+    .wsite-search-product-price {
+      .font-primary;
+      margin-top: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+      color: @body-color;
+    }
+  }
+
+  #wsite-search-list h3 {
+    .font-header;
+    .weight(400);
+    font-size: 36px;
+    line-height: 1.2;
+    text-align: center;
+    color: @primary-color;
+  }
+
+  .wsite-search-element {
+    position: relative;
+  }
+
+  .wsite-search-element-submit, .wsite-editor .wsite-search-element-submit, #wsite-search-submit {
+    top: 2px;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background: transparent url(images/search.svg) no-repeat center center;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  li:not(.wsite-search-product-result) {
+    h3 {
+      text-align: left !important;
+    }
+  }
+
+  #wsite-search-sidebar {
+    h3 {
+      .font-header;
+      letter-spacing: 2px;
+    }
+
+    a {
+      .font-primary;
+      .weight(500);
+      padding-bottom: 5px;
+      font-size: 12px;
+      color: @body-color;
+      border-bottom-color: transparent;
+
+      &:hover {
+        border-bottom-color: @secondary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: @bp-small) {
+  .wsite-page-searchresults {
+    #wsite-search-results {
+      width: 100%;
+
+      .wsite-search-product-result {
+        padding-right: 0;
+        padding-left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/*MOBILE SUPPORT*/
+
+@media (max-width: @bp-small) {
+
+  #wsite-search-results, #wsite-search-header {
+    float: none !important;
+    width: 100% !important;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  #wsite-search-sidebar {
+    display: none;
+  }
+
+  #wsite-search-content:not(.one-column) #wsite-search-results {
+    float: none !important;
+    width: 100% !important;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  #wsite-search-product-results .wsite-search-product-result {
+    width: 47%;
+  }
+
+  #wsite-search-product-results .wsite-search-product-result:nth-child(3n+2), #wsite-search-product-results .wsite-search-product-result:nth-child(3n+1) {
+    padding-right: 0 !important;
+  }
+
+  #wsite-search-product-results .wsite-search-product-result:nth-child(odd) {
+    padding-right: 6% !important;
+  }
+}
+/***^ results page ^***/

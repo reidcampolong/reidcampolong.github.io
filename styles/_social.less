@@ -1,0 +1,33 @@
+/* Social
+--------------------------------------------------------------------------------*/
+
+.wsite-social { white-space: normal; }
+
+.wsite-social-item {
+  &::before,
+  &::after {
+    position: relative;
+    top: 0;
+    left: 1px;
+  }
+}
+
+.wsite-social-item {
+  display: inline-block;
+  line-height: 24px;
+  margin: 0 10px 0 0;
+  width: 24px;
+  height: 24px;
+  color: @color-nav-background;
+  font-size: 10px;
+  text-align: center;
+  background-color: @secondary-color;
+  border-radius: 50%;
+
+  &:hover {
+    color: @color-nav-background;
+    background-color: @primary-color;
+  }
+
+  &:last-of-type { margin-right: 0; }
+}

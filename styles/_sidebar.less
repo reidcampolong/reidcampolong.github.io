@@ -1,0 +1,101 @@
+@sidebar-gutter: 50px;
+
+#main {
+  display: block;
+  padding: 0 0 0 320px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#navigation {
+  position: fixed;
+  display: block;
+  padding-top: 40px;
+  width: 320px;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 10;
+  box-sizing: border-box;
+  background-color: @color-nav-background;
+
+  .wsite-social { margin: @gutter 0 @gutter-half; }
+}
+
+#navigation-wrap {
+  display: table;
+  width: 100%;
+  padding: 0 @sidebar-gutter;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.wsite-nav-cart {
+  #wsite-nav-cart-a {
+    .font-primary;
+    .weight(600);
+    font-size: 12px;
+    color: @secondary-color;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+//login modal
+.ui-dialog {
+  a {
+    letter-spacing: normal;
+    text-transform: none;
+    border-bottom: none;
+  }
+}
+
+@media (max-width: @bp-medium) {
+  #main {
+    padding: 0;
+  }
+
+  #navigation {
+    .transition(all 200ms cubic-bezier(0.55, 0.085, 0.68, 0.53));
+    .box-shadow(inset -5px 0px 10px 0px rgba(50, 50, 50, 0.2));
+    position: fixed;
+    width: 40% !important;
+    height: 100vh;
+    top: 0;
+    left: -110% !important;
+    vertical-align: middle;
+    z-index: 11;
+    overflow-y: auto;
+  }
+
+  #navigation .sitename {
+    display: none;
+  }
+
+  #navigation-wrap {
+    display: block;
+    width: 100% !important;
+    padding: 40px 50px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: @bp-small) {
+  #navigation-wrap {
+    background: @color-nav-background !important;
+  }
+
+  #navigation {
+    .box-shadow(none);
+    padding-top: 0;
+    width: 100% !important;
+    background: @color-nav-background;
+  }
+
+  #mobile-close { top: @gutter-third !important; }
+}
