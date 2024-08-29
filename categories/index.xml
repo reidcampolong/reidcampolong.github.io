@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Sendit</title>
-    <link>/categories/</link>
+    <link>reidcampolong.com/categories/</link>
     <description>Recent content in Categories on Sendit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="reidcampolong.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Marketing</title>
-      <link>/categories/marketing/</link>
+      <link>reidcampolong.com/categories/marketing/</link>
       <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>/categories/marketing/</guid>
+      <guid>reidcampolong.com/categories/marketing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Email</title>
-      <link>/categories/email/</link>
+      <link>reidcampolong.com/categories/email/</link>
       <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>/categories/email/</guid>
+      <guid>reidcampolong.com/categories/email/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Technology</title>
-      <link>/categories/technology/</link>
+      <link>reidcampolong.com/categories/technology/</link>
       <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>/categories/technology/</guid>
+      <guid>reidcampolong.com/categories/technology/</guid>
       <description></description>
     </item>
     
