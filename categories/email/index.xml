@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Email on Sendit</title>
+    <link>/categories/email/</link>
+    <description>Recent content in Email on Sendit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/email/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Email delivery tips</title>
+      <link>/blog/email-delivery-tips/</link>
+      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/email-delivery-tips/</guid>
+      <description>When you send an email campaign, you expect it to reach your readers, right? But what if the emails go straight to your subscribers&amp;rsquo; spam folders instead of their inboxes? To make sure your emails reach their recipients successfully, follow these email delivery tips.
+Use an ESP Use an email service provider (ESP) that has been tested by third-party email certification services. This ensures that your emails will be accepted by the major ISPs.</description>
+    </item>
+    
+  </channel>
+</rss>
