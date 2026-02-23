@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Split name into individual characters ---
     const nameEl = document.querySelector('.name');
-    const nameText = nameEl.getAttribute('aria-label');
+    const nameText = nameEl.textContent;
     nameEl.innerHTML = nameText.split('').map(char =>
         char === ' '
             ? '<span class="char">&nbsp;</span>'
@@ -9,14 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     ).join('');
 
     const chars = nameEl.querySelectorAll('.char');
+    const titleEl = document.querySelector('.title');
+    const linksEl = document.querySelector('.links');
 
-    // Set initial state — each char is pushed down and rotated in 3D
+    // Set initial hidden states via JS (not CSS, so content is visible without JS)
     gsap.set(chars, {
         y: 60,
         rotationX: -80,
         opacity: 0,
         transformOrigin: 'bottom center',
     });
+    gsap.set(titleEl, { visibility: 'hidden' });
+    gsap.set(linksEl, { opacity: 0 });
 
     const tl = gsap.timeline();
 
@@ -37,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.45,
         ease: 'power3.inOut',
         onComplete: () => {
-            document.querySelector('.title').style.visibility = 'visible';
+            gsap.set(titleEl, { visibility: 'visible' });
         }
     }, '-=0.2')
     .set('.block-mask', { transformOrigin: 'right' })
@@ -55,9 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, '-=0.2')
 
     // 4. Links fade up
-    .to('.links', {
+    .to(linksEl, {
         opacity: 1,
-        y: 0,
         duration: 0.6,
         ease: 'power3.out',
     }, '-=0.3');
