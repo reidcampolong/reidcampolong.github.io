@@ -1,75 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
+    // --- Split name into individual characters ---
+    const nameEl = document.querySelector('.name');
+    const nameText = nameEl.getAttribute('aria-label');
+    nameEl.innerHTML = nameText.split('').map(char =>
+        char === ' '
+            ? '<span class="char">&nbsp;</span>'
+            : `<span class="char">${char}</span>`
+    ).join('');
 
-    // --- Dynamic Aurora Background ---
-    const aurora = document.getElementById('aurora');
-    window.addEventListener('mousemove', (e) => {
-        gsap.to(aurora, {
-            duration: 0.5,
-            x: e.clientX,
-            y: e.clientY,
-            ease: 'power2.out'
-        });
+    const chars = nameEl.querySelectorAll('.char');
+
+    // Set initial state — each char is pushed down and rotated in 3D
+    gsap.set(chars, {
+        y: 60,
+        rotationX: -80,
+        opacity: 0,
+        transformOrigin: 'bottom center',
     });
 
-    // --- Hero Section Animation ---
-    const heroLines = gsap.utils.toArray('.hero-line');
-    const subtitle = document.querySelector('.subtitle');
+    const tl = gsap.timeline();
 
-    gsap.set(heroLines, { y: 50, opacity: 0 });
-    gsap.set(subtitle, { y: 30, opacity: 0 });
-
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-    tl.to(heroLines, {
+    // 1. Name characters cascade in with 3D flip
+    tl.to(chars, {
         y: 0,
+        rotationX: 0,
         opacity: 1,
-        duration: 1, // Faster
-        stagger: 0.1
-    }).to(subtitle, {
+        duration: 0.9,
+        stagger: 0.035,
+        ease: 'back.out(1.5)',
+        delay: 0.5,
+    })
+
+    // 2. Block reveal for title — accent mask sweeps in, then out
+    .to('.block-mask', {
+        scaleX: 1,
+        duration: 0.45,
+        ease: 'power3.inOut',
+        onComplete: () => {
+            document.querySelector('.title').style.visibility = 'visible';
+        }
+    }, '-=0.2')
+    .set('.block-mask', { transformOrigin: 'right' })
+    .to('.block-mask', {
+        scaleX: 0,
+        duration: 0.45,
+        ease: 'power3.inOut',
+    })
+
+    // 3. Rule extends from center
+    .to('.rule', {
+        width: '6rem',
+        duration: 0.7,
+        ease: 'power2.inOut',
+    }, '-=0.2')
+
+    // 4. Links fade up
+    .to('.links', {
+        opacity: 1,
         y: 0,
-        opacity: 1,
-        duration: 0.8 // Faster
-    }, "-=0.6");
-
-
-    // --- Content Section Animations on Scroll ---
-    const sections = gsap.utils.toArray('.content-section');
-
-    sections.forEach(section => {
-        const elements = section.querySelectorAll('.section-title, p, .project-card, .cta-button');
-        gsap.set(elements, { opacity: 0, y: 30 }); // Slightly less distance
-
-        ScrollTrigger.create({
-            trigger: section,
-            start: 'top 85%', // Trigger a bit sooner
-            end: 'bottom 15%',
-            onEnter: () => gsap.to(elements, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6, // Faster
-                stagger: 0.08, // Faster stagger
-                ease: 'power3.out'
-            }),
-            onLeaveBack: () => gsap.to(elements, {
-                opacity: 0,
-                y: 30, // Slightly less distance
-                duration: 0.6, // Faster
-                ease: 'power3.in'
-            }),
-        });
-    });
-
-    // --- Interactive Project Cards ---
-    const projectCards = gsap.utils.toArray('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
-}); 
+        duration: 0.6,
+        ease: 'power3.out',
+    }, '-=0.3');
+});
