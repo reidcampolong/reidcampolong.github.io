@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelector('.rule').style.width = '6rem';
+        return;
+    }
+
     // --- Split name into individual characters ---
     const nameEl = document.querySelector('.name');
     const nameText = nameEl.textContent;
