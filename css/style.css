@@ -150,43 +150,9 @@ h1 em {
     font-size: 1rem;
 }
 
-.proof {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-block: 1px solid var(--rule);
-}
-
-.proof-item {
-    display: grid;
-    gap: 0.6rem;
-    padding: 2.25rem clamp(1rem, 3vw, 2.5rem);
-}
-
-.proof-item:first-child {
-    padding-left: 0;
-}
-
-.proof-item + .proof-item {
-    border-left: 1px solid var(--rule);
-}
-
-.proof-item strong {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    font-variant-numeric: tabular-nums;
-    letter-spacing: -0.04em;
-}
-
-.proof-item span {
-    max-width: 16rem;
-    color: var(--muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    text-wrap: pretty;
-}
-
-.work {
+.experience {
     padding: clamp(5rem, 11vw, 8rem) 0;
+    border-block: 1px solid var(--rule);
 }
 
 .section-heading {
@@ -197,6 +163,51 @@ h1 em {
 
 h2 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.experience-list {
+    border-top: 1px solid var(--rule);
+}
+
+.role {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.7fr) 2fr;
+    gap: clamp(1.5rem, 5vw, 5rem);
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.role-meta {
+    display: grid;
+    align-content: start;
+    gap: 0.4rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+}
+
+.role-copy h3 {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    line-height: 1.2;
+}
+
+.role-copy h3 span {
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.role-copy p {
+    max-width: 40rem;
+    margin-top: 0.65rem;
+    color: var(--muted);
+    line-height: 1.6;
+    text-wrap: pretty;
+}
+
+.work {
+    padding: clamp(5rem, 11vw, 8rem) 0;
 }
 
 .project-card {
@@ -333,21 +344,10 @@ a:focus-visible {
         font-size: clamp(3rem, 15vw, 4.5rem);
     }
 
-    .proof {
+    .role {
         grid-template-columns: 1fr;
-    }
-
-    .proof-item {
+        gap: 0.85rem;
         padding: 1.5rem 0;
-    }
-
-    .proof-item + .proof-item {
-        border-top: 1px solid var(--rule);
-        border-left: 0;
-    }
-
-    .proof-item span {
-        max-width: 24rem;
     }
 
     .project-card {
